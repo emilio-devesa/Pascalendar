@@ -5,6 +5,11 @@ program Pascalendar(input, output);{
 	Emilio Devesa
 }
 
+function isLeapYear(year: integer): boolean;
+begin
+	isLeapYear:=((year mod 4 = 0) and not (year mod 100 = 0)) or (year mod 400 = 0);
+end;
+
 function getYear: integer;
 var year: integer;
 begin
