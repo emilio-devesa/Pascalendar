@@ -34,6 +34,22 @@ begin
     getYear:=year;
 end;
 
+procedure printCalendar(year:integer);
+var quarter: integer;
 begin
-	writeln(getYear);
+    for quarter:=1 to 4 do begin
+        case quarter of
+            1:  writeln('Jan':11, 'Feb':25, 'Mar':25);
+            2:  writeln('Apr':11, 'May':25, 'Jun':25);
+            3:  writeln('Jul':11, 'Aug':25, 'Sep':25);
+            4:  writeln('Oct':11, 'Nov':25, 'Dec':25);
+        end;
+        writeln(' Mo Tu We Th Fr Sa Su','Mo Tu We Th Fr Sa Su':25,'Mo Tu We Th Fr Sa Su':25);
+        writeln('Here we print the days of the year');
+        writeln;
+    end;
+end;
+
+begin
+	printCalendar(getYear);
 end.
