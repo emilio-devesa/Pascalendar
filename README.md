@@ -2,6 +2,15 @@
 Command Line program written in Pascal ISO 10206 (Extended Pascal) that prints any year's calendar
 
 ## Blog post
+https://emiliodevesa.wordpress.com/2023/08/08/pascalendar/
+
+
+## How to use it
+Compile using:
+	make all
+
+Then execute:
+	bin/Pascalendar
 
 
 ## Compilation
