@@ -34,6 +34,54 @@ begin
     getYear:=year;
 end;
 
+procedure printQuarter(year, quarter: integer);
+const separator='    ';
+var dayOfTheMonth: array [1..12] of integer value [otherwise 1];
+    daysInMonth: array [1..12] of integer value [1:31; 2:28; 3:31; 4:30; 5:31; 6:30; 7:31; 8:31; 9:30; 10:31; 11:30; 12:31];
+    monthOfTheQuarter: array [1..4,1..3] of integer value [1:[1:1; 2:2; 3:3]; 2:[1:4; 2:5; 3:6]; 3:[1:7; 2:8; 3:9]; 4:[1:10; 2:11; 3:12]];
+    weekIsOver: array [1..3] of boolean value [otherwise false];
+    monthIsOver: array[1..3] of boolean value [otherwise false];
+    month, weekday, monthIndex, whitespace:integer;
+begin
+    if isLeapYear(year) then daysInMonth[2]:=29;
+    repeat
+        for monthIndex:=1 to 3 do begin
+            month:=monthOfTheQuarter[quarter, monthIndex];
+            if monthIsOver[monthIndex]
+            then begin
+                for whitespace:=1 to 25 do write(' '); 
+            end
+            else begin
+                weekIsOver[monthIndex]:=false;
+                while not (weekIsOver[monthIndex]) and not (monthIsOver[monthIndex]) do begin
+                        weekday:=getDayOfTheWeek(year,month,dayOfTheMonth[month]);
+                        {Is this week over yet?}
+                        if (weekday=0)
+                        then begin
+                            weekIsOver[monthIndex]:=true;
+                            if (dayOfTheMonth[month]=1)
+                            then write(dayOfTheMonth[month]:21)
+                            else write(dayOfTheMonth[month]:3);
+                            write(separator);
+                        end
+                        else
+                            if (dayOfTheMonth[month]=1)
+                            then write(dayOfTheMonth[month]:3*weekday)
+                            else write(dayOfTheMonth[month]:3);
+                        {Is this month over yet?}
+                        if dayOfTheMonth[month]=daysInMonth[month]
+                        then begin
+                            monthIsOver[monthIndex]:=true;
+                            if (weekday<>0) then for whitespace:=weekday*3 to 24 do write(' ');
+                        end
+                        else dayOfTheMonth[month]:=dayOfTheMonth[month]+1;
+                    end;
+            end;
+        end;
+        writeln;
+    until (monthIsOver[1] and monthIsOver[2] and monthIsOver[3]);
+end;
+
 procedure printCalendar(year:integer);
 var quarter: integer;
 begin
@@ -45,7 +93,7 @@ begin
             4:  writeln('Oct':11, 'Nov':25, 'Dec':25);
         end;
         writeln(' Mo Tu We Th Fr Sa Su','Mo Tu We Th Fr Sa Su':25,'Mo Tu We Th Fr Sa Su':25);
-        writeln('Here we print the days of the year');
+        printQuarter(year, quarter);
         writeln;
     end;
 end;
