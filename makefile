@@ -7,7 +7,7 @@ EXECUTABLE_PATH=bin
 
 MAIN_PROGRAM=src/Pascalendar.pas
 
-GPCFLAGS=--extended-pascal -O3 -Wall --executable-file-name -g --automake --unit-path=$(UNIT_PATH) --unit-destination-path=$(UNIT_DESTINATION) --object-destination-path=$(OBJECT_DESTINATION) --executable-path=$(EXECUTABLE_PATH)
+GPCFLAGS=--stack-checking --range-checking --io-checking --no-macros --no-short-circuit --no-ignore-packed --no-methods-always-virtual --no-implicit-result -Wwarnings -Wall -g -v -Wl,--strip-all -time --extended-pascal -O3 --executable-file-name --automake --unit-path=$(UNIT_PATH) --unit-destination-path=$(UNIT_DESTINATION) --object-destination-path=$(OBJECT_DESTINATION) --executable-path=$(EXECUTABLE_PATH)
 
 
 
