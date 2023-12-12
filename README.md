@@ -24,4 +24,6 @@ Uses GNU Pascal compiler:
 	$ make all
 
 Clean files:
+
 	$ make clean
+
