@@ -1,11 +1,9 @@
 # Pascalendar
-![Pascalendar](https://emiliodevesa.files.wordpress.com/2023/12/pascalendar.png)
+![Pascalendar](assets/pascalendar.png)
 
-Command Line program written in Pascal ISO 10206 (Extended Pascal) that prints any year's calendar
+Pascalendar is a small command line program written in Pascal ISO 10206 (Extended Pascal) that prints on the terminal the calendar of one year chosen by the user.
 
-
-## Blog post
-https://emiliodevesa.wordpress.com/2023/08/08/pascalendar/
+The program will print a careful visual representation with headers for each month and day of the week.
 
 
 ## How to use it
