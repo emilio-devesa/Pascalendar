@@ -1,9 +1,6 @@
 program Pascalendar(input, output);{
 	Pascalendar
 	Command Line program written in Pascal ISO 10206 (Extended Pascal) that prints any year's calendar
-
-	Emilio Devesa
-    https://emiliodevesa.wordpress.com/2023/08/08/pascalendar/
 }
 
 function isLeapYear(year: integer): boolean;
